@@ -3,7 +3,7 @@
 🚀 A personal website to showcase my background, projects, and passion for embedded systems, VLSI design, and AI-integrated technologies.
 
 ## 🌐 Live Preview
-👉 [Visit Website](https://fahim-portfolio.github.io/fahim-portfolio/)  
+👉 [Visit Website](https://shoyeib.github.io/fahim-portfolio/)  
 
 
 ---
