@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Shoyeb Ahmed Fahim | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
@@ -21,6 +21,7 @@
             --gray: #94a3b8;
             --dark-gray: #64748b;
             --transition: all 0.3s ease;
+            --accent: #0d9488;
         }
 
         body {
@@ -168,6 +169,7 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            font-size: 1.5rem;
         }
 
         /* Hero Section */
@@ -193,16 +195,30 @@
 
         .hero h1 span {
             color: var(--primary);
+            position: relative;
+        }
+
+        .hero h1 span:after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(37, 99, 235, 0.2);
+            z-index: -1;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: var(--dark-gray);
+            max-width: 90%;
         }
 
         .hero-btns {
             display: flex;
+            margin-top: 2rem;
         }
 
         .hero-img {
@@ -213,6 +229,16 @@
             width: 45%;
             max-width: 600px;
             z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
         }
 
         /* About Section */
@@ -225,38 +251,72 @@
 
         .about-text h2 {
             margin-bottom: 1.5rem;
+            font-size: 2.2rem;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
             color: var(--dark-gray);
+            font-size: 1.1rem;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .skill {
-            background-color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            margin: 0 0.8rem 0.8rem 0;
+        .stat-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            font-weight: 500;
-            display: flex;
-            align-items: center;
+            text-align: center;
+            transition: var(--transition);
         }
 
-        .skill i {
-            margin-right: 0.5rem;
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item i {
+            font-size: 2rem;
             color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .stat-item p {
+            color: var(--dark-gray);
+            margin: 0;
+            font-size: 1rem;
         }
 
         /* Projects Section */
         .projects {
             background-color: #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.05;
+            z-index: 0;
         }
 
         .project-filters {
@@ -264,17 +324,18 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 2rem;
+            gap: 0.5rem;
         }
 
         .filter-btn {
             padding: 0.5rem 1.5rem;
-            margin: 0.5rem;
             background: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -294,6 +355,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            position: relative;
         }
 
         .project-card:hover {
@@ -304,6 +366,7 @@
         .project-img {
             height: 220px;
             overflow: hidden;
+            position: relative;
         }
 
         .project-img img {
@@ -335,6 +398,7 @@
             display: flex;
             flex-wrap: wrap;
             margin-bottom: 1rem;
+            gap: 0.5rem;
         }
 
         .project-tag {
@@ -343,8 +407,6 @@
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
             font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
         }
 
         /* Contact Section */
@@ -577,6 +639,7 @@
             
             .hero-btns {
                 justify-content: center;
+                flex-wrap: wrap;
             }
             
             .hero-img {
@@ -591,6 +654,10 @@
                 margin-left: 0;
                 margin-top: 1rem;
             }
+
+            .project-filters {
+                justify-content: flex-start;
+            }
         }
 
         @media screen and (max-width: 576px) {
@@ -599,11 +666,24 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
                 font-size: 1rem;
+            }
+
+            .stat-item {
+                padding: 1rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -638,9 +718,7 @@
             </div>
         </div>
         <div class="hero-img">
-            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#2563eb" opacity="0.1" d="M59.5,-54.8C74.4,-35.9,82.2,-8.7,78.9,16.8C75.6,42.3,61.2,65.8,41.1,76.5C21.1,87.1,-4.7,84.9,-26.1,75.3C-47.5,65.7,-64.6,48.7,-73.7,27.3C-82.7,5.8,-83.7,-20.2,-74.8,-41.5C-65.9,-62.8,-47.1,-79.5,-25.1,-85.8C-3.1,-92.1,22.1,-88,59.5,-54.8Z" transform="translate(250 250)" />
-            </svg>
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Electronics Engineering">
         </div>
     </section>
 
@@ -650,23 +728,37 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>I’m an Electrical and Electronic Engineering graduate from Ahsanullah University of Science and Technology (AUST), Bangladesh, with a strong passion for embedded systems, VLSI design, and energy-efficient hardware development.</h2>
+                    <h2>I'm an Electrical and Electronic Engineering graduate from Ahsanullah University of Science and Technology (AUST), Bangladesh</h2>
                     <p>Throughout my academic journey, I explored key technologies such as Verilog, Arduino, C++, Cadence, and KiCad. My hands-on experience spans from microcontroller-based automation to power system simulations and low-power SRAM architecture comparisons. These projects shaped my technical foundation and sharpened my problem-solving mindset.</p>
-                    <p>I’m currently pursuing opportunities to join global research and development environments, with a particular interest in contributing to smart grid innovation, embedded control systems, and next-generation hardware design. My long-term goal is to bring this knowledge back to Bangladesh to help transform its industrial and energy sectors.</p>
-                    <div class="skills">
-                        <div class="skill"><i class="fab fa-html5"></i> HTML5</div>
-                        <div class="skill"><i class="fab fa-css3-alt"></i> CSS3</div>
-                        <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-                        <div class="skill"><i class="fab fa-react"></i> React</div>
-                        <div class="skill"><i class="fab fa-node"></i> Node.js</div>
-                        <div class="skill"><i class="fab fa-figma"></i> UI/UX Design</div>
+                    <p>I'm currently pursuing opportunities to join global research and development environments, with a particular interest in contributing to smart grid innovation, embedded control systems, and next-generation hardware design.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <i class="fas fa-microchip"></i>
+                            <h3>5+</h3>
+                            <p>Hardware Projects</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-code"></i>
+                            <h3>3+</h3>
+                            <p>Programming Languages</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>BSc</h3>
+                            <p>Electrical & Electronic Engineering</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-tools"></i>
+                            <h3>10+</h3>
+                            <p>Technical Tools</p>
+                        </div>
                     </div>
+                    
                     <a href="#" class="btn btn-primary" style="margin-top: 2rem;">Download Resume</a>
                 </div>
                 <div class="about-img">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#2563eb" d="M48.5,-59.1C62.4,-49.1,72.6,-32.9,74.9,-15.7C77.1,1.4,71.5,19.5,62.4,35.2C53.4,50.9,40.9,64.2,25.8,70.5C10.7,76.7,-7,75.9,-23.2,70.2C-39.4,64.5,-54.1,53.8,-63.3,38.7C-72.5,23.7,-76.2,4.3,-73.5,-13.5C-70.8,-31.3,-61.6,-47.5,-48.9,-57.7C-36.1,-67.9,-20.1,-72.1,-1.5,-70.8C17.1,-69.5,34.2,-62.7,48.5,-59.1Z" transform="translate(100 100)" />
-                    </svg>
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1191&q=80" alt="Shoyeb Ahmed Fahim" style="border-radius: 10px;">
                 </div>
             </div>
         </div>
@@ -678,26 +770,25 @@
             <h2 class="section-title">My Projects</h2>
             <div class="project-filters">
                 <button class="filter-btn active">All</button>
-                <button class="filter-btn">Iot Device Based on ESP32</button>
-                <button class="filter-btn">Analysis Of Different Types Of SRAM</button>
-                <button class="filter-btn">Design and Implementation of HVDC</button>
-                <button class="filter-btn">Fire Fighting Robot using Arduino</button>
-                <button class="filter-btn">UI/UX</button>
-                <button class="filter-btn">UI/UX</button>
+                <button class="filter-btn">IoT Devices</button>
+                <button class="filter-btn">SRAM Analysis</button>
+                <button class="filter-btn">HVDC Systems</button>
+                <button class="filter-btn">Robotics</button>
             </div>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project Screenshot">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="IoT Device Project">
                     </div>
                     <div class="project-info">
-                        <h3>Iot Device Based on ESP32</h3>
-                        <p>A fully responsive e-commerce website with product filtering, cart functionality, and secure checkout.</p>
+                        <h3>IoT Device Based on ESP32</h3>
+                        <p>Designed and implemented a smart IoT device using ESP32 microcontroller for real-time environmental monitoring and control.</p>
                         <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">ESP32</span>
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">C++</span>
+                            <span class="project-tag">Sensor Networks</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Project</a>
                     </div>
@@ -706,15 +797,16 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project Screenshot">
+                        <img src="https://images.unsplash.com/photo-1581094794329-8d2d5e0987fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="SRAM Analysis Project">
                     </div>
                     <div class="project-info">
                         <h3>Analysis Of Different Types Of SRAM</h3>
                         <p>Conducted comparative analysis of 6T, 8T, 9T, and 10T SRAM cells focusing on stability and power consumption, applicable in IoT memory design.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">SCSS</span>
+                            <span class="project-tag">VLSI</span>
+                            <span class="project-tag">SRAM</span>
+                            <span class="project-tag">Cadence</span>
+                            <span class="project-tag">Low-Power Design</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Project</a>
                     </div>
@@ -723,31 +815,33 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project Screenshot">
+                        <img src="https://images.unsplash.com/photo-1581094794324-e3b1e11c6a7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="HVDC Project">
                     </div>
                     <div class="project-info">
                         <h3>Design and Implementation of HVDC</h3>
                         <p>Simulated high-voltage direct current transmission to explore efficient long-distance power transfer using Proteus.</p>
                         <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Express</span>
-                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">Power Systems</span>
+                            <span class="project-tag">HVDC</span>
+                            <span class="project-tag">Proteus</span>
+                            <span class="project-tag">Energy Efficiency</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Project</a>
                     </div>
                 </div>
-                  <!-- Project 4 -->
+                <!-- Project 4 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project Screenshot">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fire Fighting Robot">
                     </div>
                     <div class="project-info">
                         <h3>Fire Fighting Robot using Arduino</h3>
                         <p>Developed using Arduino, sensors, and real-time motor control to simulate autonomous hazard response systems. Introduced me to embedded automation and control logic.</p>
                         <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Express</span>
-                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">Robotics</span>
+                            <span class="project-tag">Embedded Systems</span>
+                            <span class="project-tag">Sensors</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Project</a>
                     </div>
@@ -763,7 +857,7 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Let's talk about your project</h3>
-                    <p>I'm currently available for freelance work. Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
+                    <p>I'm currently available for freelance work and collaborations. Feel free to reach out if you're looking for an embedded systems engineer, have a question, or just want to connect.</p>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -771,7 +865,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>Email</h4>
-                            <a>Shoyeibahmed@gmail.com</a>
+                            <a href="mailto:shoyeibahmed@gmail.com">shoyeibahmed@gmail.com</a>
                         </div>
                     </div>
                     
@@ -781,7 +875,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>Phone</h4>
-                            <p>+880178163-6571</p>
+                            <p>+8801781636571</p>
                         </div>
                     </div>
                     
@@ -790,6 +884,11 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="contact-form">
                     <form id="contactForm">
@@ -825,8 +924,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>Thank you for visiting my portfolio. I’m always excited to connect and collaborate on innovative projects. Feel free to reach out!</h3>
-                    <p>A passionate web developer dedicated to creating exceptional digital experiences that help businesses grow and succeed.</p>
+                    <h3>Shoyeb Ahmed Fahim</h3>
+                    <p>Thank you for visiting my portfolio. I'm always excited to connect and collaborate on innovative projects. Feel free to reach out!</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -848,16 +947,16 @@
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">Mobile App Development</a></li>
-                        <li><a href="#">Consulting</a></li>
+                        <li><a href="#">Embedded Systems</a></li>
+                        <li><a href="#">VLSI Design</a></li>
+                        <li><a href="#">PCB Design</a></li>
+                        <li><a href="#">Hardware Prototyping</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 22025 Shoyeb Ahmed Fahim. All rights reserved.</p>
+                <p>&copy; 2025 Shoyeb Ahmed Fahim. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -893,9 +992,6 @@
                 filterBtns.forEach(b => b.classList.remove('active'));
                 // Add active class to clicked button
                 btn.classList.add('active');
-                
-                // Filter functionality would go here
-                // This is just a placeholder for the UI
             });
         });
         
