@@ -23,6 +23,12 @@
             --transition: all 0.3s ease;
             --accent: #0d9488;
             --header-height: 70px;
+            
+            /* Dark mode variables */
+            --bg-dark: #0f172a;
+            --text-dark: #e2e8f0;
+            --card-dark: #1e293b;
+            --border-dark: #334155;
         }
 
         body {
@@ -31,7 +37,59 @@
             color: #334155;
             background-color: var(--light);
             overflow-x: hidden;
-            padding-top: var(--header-height); /* Fix for header overlap */
+            padding-top: var(--header-height);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: var(--text-dark);
+        }
+        
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(15, 23, 42, 1) 100%);
+        }
+        
+        body.dark-mode .projects {
+            background-color: #0d1117;
+        }
+        
+        body.dark-mode .stat-item,
+        body.dark-mode .project-card,
+        body.dark-mode .contact-form {
+            background-color: var(--card-dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .project-tag {
+            background: rgba(37, 99, 235, 0.2);
+        }
+        
+        body.dark-mode footer {
+            background: #020617;
+        }
+        
+        body.dark-mode .footer-links a,
+        body.dark-mode .footer-about p {
+            color: #94a3b8;
+        }
+        
+        body.dark-mode .form-control {
+            background-color: #1e293b;
+            border: 1px solid var(--border-dark);
+            color: var(--text-dark);
+        }
+        
+        body.dark-mode .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
         }
 
         h1, h2, h3, h4 {
@@ -39,6 +97,7 @@
             font-weight: 700;
             color: var(--secondary);
             line-height: 1.2;
+            transition: color 0.5s ease;
         }
 
         .container {
@@ -106,7 +165,7 @@
             border-radius: 2px;
         }
 
-        /* Header Styles - Fixed Position */
+        /* Header Styles */
         header {
             position: fixed;
             top: 0;
@@ -119,6 +178,11 @@
             padding: 0.8rem 0;
             height: var(--header-height);
             transition: var(--transition);
+        }
+        
+        body.dark-mode header {
+            background-color: rgba(15, 23, 42, 0.97);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
@@ -158,6 +222,10 @@
             position: relative;
             font-size: 1.1rem;
         }
+        
+        body.dark-mode .nav-links a {
+            color: var(--text-dark);
+        }
 
         .nav-links a:hover {
             color: var(--primary);
@@ -178,14 +246,47 @@
             width: 100%;
         }
 
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        body.dark-mode .theme-toggle {
+            color: var(--text-dark);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg);
+        }
+
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
             color: var(--secondary);
         }
+        
+        body.dark-mode .hamburger {
+            color: var(--text-dark);
+        }
 
-        /* Hero Section - Fixed Header Solution */
+        /* Hero Section */
         .hero {
             min-height: calc(100vh - var(--header-height));
             display: flex;
@@ -231,6 +332,11 @@
             margin-bottom: 2rem;
             color: var(--dark-gray);
             max-width: 90%;
+            transition: color 0.5s ease;
+        }
+        
+        body.dark-mode .hero p {
+            color: #cbd5e1;
         }
 
         .hero-btns {
@@ -275,6 +381,11 @@
             margin-bottom: 1.5rem;
             color: var(--dark-gray);
             font-size: 1.1rem;
+            transition: color 0.5s ease;
+        }
+        
+        body.dark-mode .about-text p {
+            color: #cbd5e1;
         }
 
         .stats {
@@ -314,6 +425,11 @@
             color: var(--dark-gray);
             margin: 0;
             font-size: 1rem;
+            transition: color 0.5s ease;
+        }
+        
+        body.dark-mode .stat-item p {
+            color: #cbd5e1;
         }
 
         /* Projects Section */
@@ -321,6 +437,7 @@
             background-color: #f1f5f9;
             position: relative;
             overflow: hidden;
+            transition: background-color 0.5s ease;
         }
 
         .projects::before {
@@ -367,6 +484,11 @@
             font-weight: 500;
             font-size: 0.95rem;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .filter-btn {
+            background: var(--card-dark);
+            color: var(--text-dark);
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -427,6 +549,11 @@
             color: var(--dark-gray);
             margin-bottom: 1.5rem;
             font-size: 1.05rem;
+            transition: color 0.5s ease;
+        }
+        
+        body.dark-mode .project-info p {
+            color: #cbd5e1;
         }
 
         .project-tags {
@@ -443,6 +570,7 @@
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
+            transition: background-color 0.5s ease;
         }
 
         /* Contact Section */
@@ -491,6 +619,11 @@
             transition: var(--transition);
             font-size: 1.05rem;
         }
+        
+        body.dark-mode .contact-text p,
+        body.dark-mode .contact-text a {
+            color: #cbd5e1;
+        }
 
         .contact-text a:hover {
             color: var(--primary);
@@ -501,6 +634,7 @@
             padding: 2.2rem;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         .form-group {
@@ -512,6 +646,11 @@
             margin-bottom: 0.6rem;
             font-weight: 500;
             font-size: 1.05rem;
+            transition: color 0.5s ease;
+        }
+        
+        body.dark-mode .form-group label {
+            color: var(--text-dark);
         }
 
         .form-control {
@@ -540,6 +679,7 @@
             background: var(--secondary);
             color: white;
             padding: 4rem 0 2rem;
+            transition: background-color 0.5s ease;
         }
 
         .footer-content {
@@ -560,6 +700,7 @@
             margin-bottom: 1.8rem;
             font-size: 1.1rem;
             line-height: 1.7;
+            transition: color 0.5s ease;
         }
 
         .social-links {
@@ -673,6 +814,10 @@
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             }
             
+            body.dark-mode .nav-links {
+                background: var(--card-dark);
+            }
+            
             .nav-links.active {
                 right: 0;
             }
@@ -780,8 +925,13 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -1111,6 +1261,36 @@
                     });
                 }
             });
+        });
+        
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
         });
     </script>
 </body>
