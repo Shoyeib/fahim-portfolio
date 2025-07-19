@@ -31,6 +31,10 @@
             --border-dark: #334155;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -355,6 +359,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            max-height: 80vh;
         }
 
         .hero-img img {
@@ -919,9 +924,7 @@
     <header>
         <div class="container nav-container">
                 <a href="#" class="logo">
-                <!-- Font Awesome Icon -->
                 <i class="fas fa-microchip logo-icon"></i>
-                <!-- Text Logo -->
                 <span class="logo-text">Portfolio</span>
             </a>
             <ul class="nav-links">
@@ -931,10 +934,10 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="header-controls">
-                <button class="theme-toggle" id="themeToggle">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <div class="hamburger">
+                <div class="hamburger" aria-label="Toggle navigation menu" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
@@ -954,10 +957,9 @@
             </div>
         </div>
         <div class="hero-img">
-            <img src="images/Profile.jpg" alt="Shoyeb Ahmed Fahim">
+            <img src="images/Profile.png" alt="Shoyeb Ahmed Fahim">
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
