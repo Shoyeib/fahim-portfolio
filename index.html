@@ -754,97 +754,102 @@
         
         /* Footer - Mobile Optimized */
        
-footer {
-    background: var(--secondary);
-    color: white;
-    padding: 50px 0 20px;
-    position: relative;
+ooter {
+  background: var(--secondary);
+  color: white;
+  padding: 50px 0 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .footer-about {
-    text-align: center;
+  text-align: center;
 }
 
 .footer-about h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .footer-about p {
-    color: var(--gray);
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 
 .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .social-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
 }
 
 .social-link:hover {
-    background: var(--primary);
-    transform: translateY(-3px);
+  background: var(--primary);
+  transform: translateY(-3px);
 }
 
 .footer-links {
-    text-align: center;
+  text-align: center;
 }
 
 .footer-links h4 {
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-    position: relative;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  position: relative;
 }
 
 .footer-links h4:after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background: var(--primary);
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
 }
 
 .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
-    margin-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .footer-links a {
-    color: var(--gray);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: var(--transition);
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: var(--transition);
 }
 
 .footer-links a:hover {
-    color: var(--primary-light);
+  color: var(--primary-light);
 }
 
 .copyright {
@@ -967,28 +972,27 @@ footer {
             }
             
             /* Footer */
-            .footer-content {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        align-items: flex-start;
-        text-align: left;
-    }
+           .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    align-items: flex-start;
+  }
 
-    .footer-about,
-    .footer-links {
-        text-align: left;
-    }
+  .footer-about,
+  .footer-links {
+    text-align: left;
+  }
 
-    .social-links {
-        justify-content: flex-start;
-    }
+  .social-links {
+    justify-content: flex-start;
+  }
 
-    .footer-links h4:after {
-        left: 0;
-        transform: none;
-    }
+  .footer-links h4:after {
+    left: 0;
+    transform: none;
+  }
 }
+
         @media screen and (min-width: 992px) {
             /* Hero Section */
             .hero-img-wrapper {
@@ -1270,11 +1274,11 @@ footer {
                     <h3>Proteus</h3>
                 </div> 
                  <div class="skill-item">
-                    <i class="fa-brands fa-matlab"></i>
+                    <i class="fas fa-matlab"></i>
                     <h3>MatLAB</h3>
                 </div> 
                   <div class="skill-item">
-                    <i class="fas fa-plug"></i>
+                    <i class="fas fa-OrCad"></i>
                     <h3>OrCad</h3>
                 </div>
             </div>
@@ -1444,7 +1448,7 @@ footer {
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer> 
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
