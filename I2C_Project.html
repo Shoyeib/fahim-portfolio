@@ -9,19 +9,18 @@
 <body>
   <section class="project-detail">
     <div class="container">
-      <h1>IoT Device Based on ESP32</h1>
-      <img src="images/esp32-main.jpg" alt="ESP32 Project" style="width: 100%; max-width: 700px; margin: 20px 0;" />
+      <h1>Wishbone I2C in SoC</h1>
+      <img src="images/Wishbone I2C.jpg" alt="Wishbone I2C in SoC" style="width: 100%; max-width: 700px; margin: 20px 0;" />
 
       <p>
-        This project is a smart IoT device built with an ESP32 microcontroller. It reads real-time data from sensors and sends it over WiFi for remote monitoring and automation.
+        In this project, Verilog HDL is used to implement this design both in core and pad. Physical verification and other result is determined by providing command in encounter. After optimizing the CTS we got the desired value of max_cap & max_trans of real Nr nets. But after postRoute optimization we got some undesired value of TNS in Setup mode, WNS & TNS in Hold mode and max_trans in DRVs. All Physical Verification has found okay except some Connectivity, Geometry and PG Short Violations. After all, it was a very successful implementation of SoC system except some undesired datas. Advantages of this system is that it is completely reusable and it can be used on any FPGA without changing the design more. The same concept can be used to verify different IP’s. Therefore a cost effective device can be easily developed by using this WISHBONE. Further improvement can be carried out by modifying a little bit of this device.
       </p>
 
       <h3>🔧 Tools Used</h3>
       <ul>
-        <li>ESP32</li>
-        <li>DHT11 Temperature & Humidity Sensor</li>
-        <li>Arduino IDE (C++)</li>
-        <li>Firebase Realtime Database</li>
+        <li>WISHBONE I2C Master Core</li>
+        <li>Encounter</li>
+        <li>Genus</li>   
       </ul>
 
       <h3>📸 Screenshots</h3>
