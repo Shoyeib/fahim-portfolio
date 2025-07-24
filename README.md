@@ -29,4 +29,4 @@
 ## 📬 Contact
 
 - 📧 Email: Shoyeibahmed@gmail.com
-- 🔗 LinkedIn: linkedin.com/shoyeb-ahmed-fahim
+- 🔗 LinkedIn: [linkedin.com/shoyeb-ahmed-fahim]
