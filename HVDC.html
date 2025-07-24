@@ -213,6 +213,7 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
       border: 1px solid rgba(0, 0, 0, 0.05);
+      cursor: pointer;
     }
 
     .gallery-item:hover {
@@ -283,6 +284,55 @@
       box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
     }
 
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    #modal-caption {
+      margin: 15px auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     /* Responsive styles */
     @media screen and (max-width: 768px) {
       header h1 {
@@ -318,6 +368,10 @@
       .btn {
         width: 100%;
         text-align: center;
+      }
+      
+      .modal-content {
+        width: 95%;
       }
     }
   </style>
@@ -438,7 +492,7 @@
       
       <h3><i class="fas fa-project-diagram"></i> Block Diagram</h3>
       <div class="gallery">
-       <div class="gallery-item" onclick="openModal('images/HVDC/Circuit.jpg', 'Block Diagram')">
+        <div class="gallery-item" onclick="openModal('images/HVDC/Circuit.jpg', 'HVDC System Block Diagram')">
           <img src="images/HVDC/Circuit.jpg" alt="Block Diagram">
           <div class="gallery-caption">HVDC System Block Diagram</div>
         </div>
@@ -446,7 +500,7 @@
       
       <h3><i class="fas fa-drafting-compass"></i> Circuit Design</h3>
       <div class="gallery">
-    <div class="gallery-item" onclick="openModal('images/HVDC/Proteis.jpg', 'Circuit Diagram')">
+        <div class="gallery-item" onclick="openModal('images/HVDC/Proteus.jpg', 'Proteus Circuit Design')">
           <img src="images/HVDC/Proteus.jpg" alt="Circuit Diagram">
           <div class="gallery-caption">Proteus Circuit Design</div>
         </div>
@@ -462,11 +516,11 @@
       
       <h3><i class="fas fa-tachometer-alt"></i> I/O Measurements</h3>
       <div class="gallery">
-       <div class="gallery-item" onclick="openModal('images/HVDC/input check.jpg', 'Input check')">
+        <div class="gallery-item" onclick="openModal('images/HVDC/input check.jpg', 'Input Voltage Measurement')">
           <img src="images/HVDC/input check.jpg" alt="Input check">
           <div class="gallery-caption">Input Voltage Measurement</div>
         </div>
-        <div class="gallery-item" onclick="openModal('images/HVDC/output check.jpg', 'Output check')">
+        <div class="gallery-item" onclick="openModal('images/HVDC/output check.jpg', 'Output Voltage Measurement')">
           <img src="images/HVDC/output check.jpg" alt="Output check">
           <div class="gallery-caption">Output Voltage Measurement</div>
         </div>
@@ -527,7 +581,39 @@
     </div>
   </div>
   
+  <!-- Modal Structure -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="modal-caption"></div>
+  </div>
+  
   <script>
+    // Get the modal
+    const modal = document.getElementById("imageModal");
+    
+    // Function to open modal
+    function openModal(src, caption) {
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("modal-caption");
+      
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = caption;
+    }
+    
+    // Function to close modal
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    // Close modal when clicking outside of image
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+    
     // Simple animation for cards when they come into view
     document.addEventListener('DOMContentLoaded', function() {
       const cards = document.querySelectorAll('.card, .feature-card, .equipment-card, .gallery-item');
