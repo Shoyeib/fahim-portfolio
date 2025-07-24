@@ -28,5 +28,6 @@
 
 ## 📬 Contact
 
-- 📧 Email: Shoyeibahmed@gmail.com
-- 🔗 LinkedIn: [linkedin.com/shoyeb-ahmed-fahim] https://www.inkedin.com/in/shoyeb-ahmed-fahim/
+- 📧 Email: [Shoyeibahmed@gmail.com](mailto:Shoyeibahmed@gmail.com)  
+- 🔗 LinkedIn: [linkedin.com/in/shoyeb-ahmed-fahim](https://www.linkedin.com/in/shoyeb-ahmed-fahim/)
+
