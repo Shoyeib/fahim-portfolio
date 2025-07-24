@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HVDC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High Voltage Direct Current</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -27,12 +27,12 @@
       padding-bottom: 50px;
     }
 
-    header {
-      background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-      padding: 100px 20px 80px;
-    }
+   header {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
+  padding: 100px 20px 80px;
+}
 
     header h1 {
       font-size: 2.8rem;
@@ -54,6 +54,12 @@
       max-width: 700px;
       border-radius: 10px;
       margin: 20px 0;
+      display: block;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: var(--primary);
     }
 
     h3 {
@@ -99,30 +105,49 @@
   </style>
 </head>
 <body>
+   <header>
+    <h1>High Voltage Direct Current</h1>
+  </header>
   <section class="project-detail">
-    <div class="container">
-      <h1>Wishbone I2C in SoC</h1>
-      <img src="images/Wishbone I2C.jpg" alt="Wishbone I2C in SoC" style="width: 100%; max-width: 700px; margin: 20px 0;" />
-
+    <div class="container">   
       <p>
-        In this project, Verilog HDL is used to implement this design both in core and pad. Physical verification and other result is determined by providing command in encounter. After optimizing the CTS we got the desired value of max_cap & max_trans of real Nr nets. But after postRoute optimization we got some undesired value of TNS in Setup mode, WNS & TNS in Hold mode and max_trans in DRVs. All Physical Verification has found okay except some Connectivity, Geometry and PG Short Violations. After all, it was a very successful implementation of SoC system except some undesired datas. Advantages of this system is that it is completely reusable and it can be used on any FPGA without changing the design more. The same concept can be used to verify different IP’s. Therefore a cost effective device can be easily developed by using this WISHBONE. Further improvement can be carried out by modifying a little bit of this device.
+     According to the findings of the experiments, the robot can quickly and reliably detect fire.
       </p>
 
-      <h3>🔧 Tools Used</h3>
+      <h3>🔧 Equipments Used</h3>
       <ul>
-        <li>WISHBONE I2C Master Core</li>
-        <li>Encounter</li>
-        <li>Genus</li>   
+        <li>Arduino Uno</li>
+        <li>IR  Flame sensor / Fire sensor</li>
+        <li>L298N motor driver module</li> 
+        <li>Servo Motor</li> 
+        <li>DC Pumping Motor</li> 
+        <li>Buck Converter</li> 
+        <li>Battery 1500 MAH</li> 
+        <li>Robot Chassis with 4-motors and 4-wheels</li> 
+        <li>Resistor(220-Ohm)</li> 
+        <li>Breadboard (Mini)</li>
+        <li>Jumper Wires</li>
       </ul>
+<h2>📸 Implementation Screenshots</h2>
+      <h3>Block Diagram</h3>
+        <img src="images/HVDC/Circuit.jpg" alt="Circuit Diagram" style="max-width: 500px;" />
+      
+      <h3>Circuit Diagram | Proteus</h3>
+        <img src="images/HVDC/Proteus.jpg" alt="Circuit Diagram" style="max-width: 500px;" />
+       
+      <h3>Circuit Implemented in Breadboard & I/O ratings</h3>
+         <img src="images/HVDC/Ckt.jpg" alt="Ckt in Breadboard" style="max-width: 500px;" />
+         <img src="images/HVDC/input check.jpg" alt="Input check" style="max-width: 500px;" />
+         <img src="images/HVDC/output check.jpg" alt="Output check" style="max-width: 500px;" />
 
-      <h3>📸 Screenshots</h3>
-      <img src="images/esp32-circuit.jpg" alt="Circuit Diagram" style="max-width: 500px;" />
-      <img src="images/esp32-dashboard.jpg" alt="Dashboard" style="max-width: 500px;" />
+       <h3>Video I/O rating</h3>
+        <video width="500" controls>
+         <source src="images/HVDC/video.mp4" type="video/mp4">
+        </video>
 
       <h3>💡 Key Features</h3>
       <ul>
         <li>Real-time sensor monitoring</li>
-        <li>Cloud connectivity (Firebase)</li>
         <li>Energy efficient setup</li>
       </ul>
 
