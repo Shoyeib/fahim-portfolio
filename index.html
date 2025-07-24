@@ -1043,71 +1043,96 @@ footer {
         }
         
         /* Mobile optimization */
-        @media (max-width: 991px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 2rem 0;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: right 0.4s ease;
-                z-index: 1000;
-            }
-            
-            .nav-links.show {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 1.5rem 0;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            .hero {
+      @media (max-width: 991px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.4s ease;
+        z-index: 1000;
+    }
+    
+    .nav-links.show {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    /* Hero section modifications */
+    .hero {
         flex-direction: column;
         justify-content: center;
-           }
-             .hero-img-wrapper {
-        position: static ;
-        transform: none ;
-        width: 100% ;
-        max-width: 520px;
-        margin: 40px auto 0 ;
-        order: 2; 
-      }
-        .hero-content {
-        order: 1; 
         text-align: center;
-      }      
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .stat-item {
-                padding: 1rem;
-            }
-            
-            .stat-item i {
-                font-size: 1.5rem;
-            }
-            
-            .stat-item h3 {
-                font-size: 1.3rem;
-            }
-          
-            }
+    }
+    
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        order: 1;
+        text-align: center;
+    }
+    
+    .hero-heading-group {
+        order: 1;
+    }
+    
+    .hero-img-wrapper {
+        order: 2;
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 520px;
+        margin: 20px auto;
+        padding: 8px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #2563eb, #0d9488);
+        box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+    }
+    
+    .hero-content p {
+        order: 3;
+        margin-top: 20px;
+    }
+    
+    .hero-btns {
+        order: 4;
+        margin-top: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+    }
+    
+    .stat-item i {
+        font-size: 1.5rem;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.3rem;
+    }
+}
         
         @media (max-width: 576px) {
             .hero-img-wrapper {
@@ -1178,9 +1203,11 @@ footer {
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content"> 
+            <div class="hero-content">
+                <div class="hero-heading-group">
                 <h1>Hello, I'm <span class="name">Shoyeb Ahmed Fahim</span></h1>
-                <p class="subtitle">Engineer | Innovator | Embedded Systems & VLSI Enthusiast</p>
+                <p class="subtitle">Engineer | Innovator | Embedded Systems & VLSI Enthusiast
+                    </p>
                 <p>
                     I build smarter hardware systems—from fire-fighting robots to custom silicon layouts. With a background in embedded design, power electronics, and semiconductors, I’m always exploring what’s next in intelligent hardware. My goal? To bring embedded systems and real-world AI together—shaping tech that’s faster, smarter, and truly efficient.
                 </p>
@@ -1194,12 +1221,13 @@ footer {
                 </div>
             </div>
         </div>
-        <!-- Hero Image with Gradient Border -->
+                    <!-- Hero Image with Gradient Border -->
         <div class="hero-img-wrapper">
             <div class="hero-img">
             <img src="images/Profile.jpg" alt="Shoyeb Ahmed Fahim">    
         </div>
         </div>
+     
     </section>
 
     <!-- About Section -->
