@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fire Fighting Robot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007bff;
+      --dark: #0b1120;
+      --light: #f5f5f5;
+      --accent: #009688;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: var(--dark);
+      padding-bottom: 50px;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px 80px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .container img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: var(--primary);
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00796b;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+        padding: 10px 15px;
+      }
+
+      .btn {
+        padding: 10px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="project-detail">
+    <div class="container">
+      <h1>Fire Fighting Robot</h1>
+      <img src="images/Wishbone I2C.jpg" alt="Wishbone I2C in SoC" style="width: 100%; max-width: 700px; margin: 20px 0;" />
+
+      <p>
+        In this project, Verilog HDL is used to implement this design both in core and pad. Physical verification and other result is determined by providing command in encounter. After optimizing the CTS we got the desired value of max_cap & max_trans of real Nr nets. But after postRoute optimization we got some undesired value of TNS in Setup mode, WNS & TNS in Hold mode and max_trans in DRVs. All Physical Verification has found okay except some Connectivity, Geometry and PG Short Violations. After all, it was a very successful implementation of SoC system except some undesired datas. Advantages of this system is that it is completely reusable and it can be used on any FPGA without changing the design more. The same concept can be used to verify different IP’s. Therefore a cost effective device can be easily developed by using this WISHBONE. Further improvement can be carried out by modifying a little bit of this device.
+      </p>
+
+      <h3>🔧 Tools Used</h3>
+      <ul>
+        <li>WISHBONE I2C Master Core</li>
+        <li>Encounter</li>
+        <li>Genus</li>   
+      </ul>
+
+      <h3>📸 Screenshots</h3>
+      <img src="images/esp32-circuit.jpg" alt="Circuit Diagram" style="max-width: 500px;" />
+      <img src="images/esp32-dashboard.jpg" alt="Dashboard" style="max-width: 500px;" />
+
+      <h3>💡 Key Features</h3>
+      <ul>
+        <li>Real-time sensor monitoring</li>
+        <li>Cloud connectivity (Firebase)</li>
+        <li>Energy efficient setup</li>
+      </ul>
+
+      <a href="index.html" class="btn">← Back to Projects</a>
+    </div>
+  </section>
+</body>
+</html>
