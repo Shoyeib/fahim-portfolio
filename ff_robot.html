@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fire Fighting Robot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Fire Fighting Robot Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #007bff;
-      --dark: #0b1120;
-      --light: #f5f5f5;
-      --accent: #009688;
+      --primary: #e63946;
+      --secondary: #a8dadc;
+      --dark: #1d3557;
+      --light: #f1faee;
+      --accent: #f4a261;
+      --header-bg: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
     }
 
     * {
@@ -22,140 +25,543 @@
     body {
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
-      background-color: #ffffff;
-      color: var(--dark);
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      color: #333;
       padding-bottom: 50px;
+      overflow-x: hidden;
     }
 
-   header {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: white;
-  text-align: center;
-  padding: 100px 20px 80px;
-}
+    /* Header styles */
+    header {
+      background: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 100px 20px 80px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzFlMzQ1NyIgZmlsbC1vcGFjaXR5PSIwLjEiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjNDU3YjlkIiBmaWxsLW9wYWNpdHk9IjAuMiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+      opacity: 0.3;
+    }
 
     header h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      background-color: rgba(0, 0, 0, 0.4);
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 10px;
+      font-size: 3.2rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    .container img {
-      width: 100%;
+    .subtitle {
+      font-size: 1.3rem;
       max-width: 700px;
-      border-radius: 10px;
-      margin: 20px 0;
-      display: block;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      opacity: 0.9;
+      font-weight: 300;
     }
 
-    h2 {
-      margin-top: 40px;
-      color: var(--primary);
+    /* Container styles */
+    .container {
+      max-width: 1200px;
+      margin: -50px auto 50px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
     }
 
-    h3 {
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    .intro p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(230, 57, 70, 0.1) 0%, rgba(168, 218, 220, 0.1) 100%);
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      margin: 25px 0;
+    }
+
+    /* Features section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
       margin-top: 30px;
-      color: var(--primary);
     }
 
-    ul {
-      margin-top: 10px;
-      padding-left: 20px;
+    .feature-card {
+      background: rgba(168, 218, 220, 0.15);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(168, 218, 220, 0.3);
     }
 
-    ul li {
+    .feature-card:hover {
+      transform: translateY(-8px);
+      background: rgba(168, 218, 220, 0.25);
+      box-shadow: 0 8px 20px rgba(168, 218, 220, 0.2);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+
+    .feature-card h3 {
+      color: var(--dark);
       margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    /* Equipment styles */
+    .equipment-section {
+      margin-top: 40px;
+    }
+
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .equipment-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .equipment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .equipment-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    /* Gallery styles */
+    .gallery-section {
+      margin-top: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .gallery-caption {
+      padding: 15px;
+      text-align: center;
+      font-weight: 500;
+      color: var(--dark);
+      background: var(--light);
+    }
+
+    /* Robot diagram */
+    .robot-diagram {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .robot-diagram img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Button styles */
+    .btn-container {
+      text-align: center;
+      margin-top: 50px;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 25px;
-      background-color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--primary);
       color: white;
       text-decoration: none;
       font-weight: 600;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
     }
 
     .btn:hover {
-      background-color: #00796b;
+      background: #c1121f;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
     }
 
-    @media screen and (max-width: 600px) {
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .card {
+        padding: 30px 20px;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header {
+        padding: 100px 20px 60px;
+      }
+      
       header h1 {
         font-size: 2rem;
-        padding: 10px 15px;
       }
-
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
       .btn {
-        padding: 10px 18px;
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-   <header>
+  <header>
     <h1>Fire Fighting Robot</h1>
+    <p class="subtitle">Autonomous robot for detecting and extinguishing fires</p>
   </header>
-  <section class="project-detail">
-    <div class="container">   
-      <p>
-       The real-time firefighting robot is described in this project. It moves at a constant speed, detects fires, and then puts them out using a pumping mechanism. In addition to having a small body and a light structure, it includes advantageous features such as the capacity to detect the position of fire automatically. The robot's diminutive form allows it to be deployed in places with narrow entrances and cramped areas. The method may help support firefighters and halt an outbreak. Additionally, the operator can put out fires remotely and at a greater distance. According to the findings of the experiments, the robot can quickly and reliably detect fire.
-      </p>
-
-      <h3>🔧 Equipments Used</h3>
-      <ul>
-        <li>Arduino Uno</li>
-        <li>IR  Flame sensor / Fire sensor</li>
-        <li>L298N motor driver module</li> 
-        <li>Servo Motor</li> 
-        <li>DC Pumping Motor</li> 
-        <li>Buck Converter</li> 
-        <li>Battery 1500 MAH</li> 
-        <li>Robot Chassis with 4-motors and 4-wheels</li> 
-        <li>Resistor(220-Ohm)</li> 
-        <li>Breadboard (Mini)</li>
-        <li>Jumper Wires</li>
-      </ul>
-<h2>📸 Implementation Screenshots</h2>
-      <h3>Circuit Diagram | Tinker Cad</h3>
-        <img src="images/ff_robot/2.jpg" alt="Circuit Diagram">
+  
+  <div class="container">
+    <div class="card intro">
+      <h2><i class="fas fa-robot"></i> Project Overview</h2>
       
-      <h3>Circuit Diagram | Proteus</h3>
-        <img src="images/ff_robot/3.jpg" alt="Circuit Diagram">
-       
-      <h3>Working Principle</h3>
-        <img src="images/ff_robot/4.jpg" alt="Code">
-
-      <h3>Arduino Codes</h3>
-         <img src="images/ff_robot/Arduino_codes/1.jpg" alt="Code">
-         <img src="images/ff_robot/Arduino_codes/2.jpg" alt="Code">
-         <img src="images/ff_robot/Arduino_codes/3.jpg" alt="Code">
-         <img src="images/ff_robot/Arduino_codes/4.jpg" alt="Code">
-         <img src="images/ff_robot/Arduino_codes/4.jpg" alt="Code">
-
-       <h3>Fire Fighting Robot</h3>
-        <img src="images/ff_robot/1.jpg" alt="Code">
-
-      <h3>💡 Key Features</h3>
-      <ul>
-        <li>Real-time sensor monitoring</li>
-        <li>Energy efficient setup</li>
-      </ul>
-
-      <a href="index.html" class="btn">← Back to Projects</a>
+      <p>
+        The real-time firefighting robot moves at a constant speed, detects fires using advanced sensors, and extinguishes them using a pumping mechanism. With its compact size and lightweight structure, it can be deployed in narrow entrances and confined areas where human firefighters might struggle to access.
+      </p>
+      
+      <div class="highlight">
+        <p>
+          This autonomous solution can support firefighters and help contain outbreaks more effectively. Operators can control the robot remotely, allowing firefighting at greater distances. Experimental results show that the robot can quickly and reliably detect fire sources.
+        </p>
+      </div>
+      
+      <h3>Key Capabilities</h3>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>Fire Detection</h3>
+          <p>Advanced IR flame sensors for accurate fire detection</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3>Autonomous Movement</h3>
+          <p>4-wheel drive with precise motor control</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <h3>Water Pump System</h3>
+          <p>DC pumping motor with servo-controlled nozzle</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Energy Efficient</h3>
+          <p>Optimized power consumption with buck converter</p>
+        </div>
+      </div>
     </div>
-  </section>
+    
+    <div class="card equipment-section">
+      <h2><i class="fas fa-tools"></i> Equipment Used</h2>
+      
+      <div class="equipment-grid">
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3>Arduino Uno</h3>
+          <p>Main controller</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>IR Flame Sensor</h3>
+          <p>Fire detection</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>L298N Module</h3>
+          <p>Motor driver</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-motorcycle"></i>
+          </div>
+          <h3>Servo Motor</h3>
+          <p>Nozzle control</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-fan"></i>
+          </div>
+          <h3>DC Pump Motor</h3>
+          <p>Water pumping</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-battery-full"></i>
+          </div>
+          <h3>1500mAh Battery</h3>
+          <p>Power source</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3>Robot Chassis</h3>
+          <p>4 motors & wheels</p>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Electronics</h3>
+          <p>Resistors, wires, etc.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card gallery-section">
+      <h2><i class="fas fa-images"></i> Implementation Gallery</h2>
+      
+      <div class="gallery">
+        <div class="gallery-item">
+         <img src="images/ff_robot/1.jpg" alt="Code">
+          <div class="gallery-caption">Completed Fire Fighting Robot</div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="images/ff_robot/2.jpg" alt="Circuit Diagram">
+          <div class="gallery-caption">Circuit Diagram (TinkerCAD)</div>
+        </div>
+        
+        <div class="gallery-item">
+           <img src="images/ff_robot/3.jpg" alt="Circuit Diagram">
+          <div class="gallery-caption">Circuit Diagram (Proteus)</div>
+        </div>
+             
+        <div class="gallery-item">
+             <img src="images/ff_robot/Arduino_codes/1.jpg" alt="Code">
+          <div class="gallery-caption">Arduino Code Snippet</div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="images/ff_robot/Arduino_codes/2.jpg" alt="Code"> 
+          <div class="gallery-caption">Arduino Code Snippet</div>
+        </div>
+            <div class="gallery-item">
+             <img src="images/ff_robot/Arduino_codes/3.jpg" alt="Code">
+          <div class="gallery-caption">Arduino Code Snippet</div>
+        </div>
+            <div class="gallery-item">
+             <img src="images/ff_robot/Arduino_codes/4.jpg" alt="Code">
+          <div class="gallery-caption">Arduino Code Snippet</div>
+        </div>
+            <div class="gallery-item">
+             <img src="images/ff_robot/Arduino_codes/5.jpg" alt="Code">
+          <div class="gallery-caption">Arduino Code Snippet</div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="robot-diagram">
+      <h2><i class="fas fa-project-diagram"></i> Robot Functional Diagram</h2>
+     <img src="images/ff_robot/4.jpg" alt="Code">
+      <p class="gallery-caption">Functional diagram showing the robot's components and workflow</p>
+    </div>
+    
+    <div class="card">
+      <h2><i class="fas fa-star"></i> Key Features</h2>
+      
+      <div class="features-grid" style="margin-top: 30px;">
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-satellite-dish"></i>
+          </div>
+          <h3>Real-time Monitoring</h3>
+          <p>Continuous sensor data analysis for immediate response</p>
+        </div>
+        
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-battery-quarter"></i>
+          </div>
+          <h3>Energy Efficient</h3>
+          <p>Optimized power consumption for longer operation</p>
+        </div>
+        
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <h3>Remote Control</h3>
+          <p>Operator control from safe distances</p>
+        </div>
+        
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-compress-arrows-alt"></i>
+          </div>
+          <h3>Compact Design</h3>
+          <p>Accesses confined spaces human firefighters can't reach</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="btn-container">
+      <a href="index.html" class="btn">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+      </a>
+    </div>
+  </div>
+  
+  <script>
+    // Simple animation for cards when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card, .feature-card, .equipment-card, .gallery-item');
+      
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      
+      setTimeout(() => {
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 150 * index);
+        });
+      }, 300);
+    });
+  </script>
 </body>
 </html>
