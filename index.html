@@ -1110,13 +1110,27 @@
         position: static;
         transform: none;
         width: 100%;
-        max-width: 520px;
+        max-width: 400px;
         margin: 20px auto;
-        padding: 8px;
-        border-radius: 20px;
+        padding: 6px;
+        border-radius: 16px;
         background: linear-gradient(135deg, #2563eb, #0d9488);
         box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
         display: block; /* ADDED */
+    }
+            .mobile-hero-img .hero-img {
+        position: relative;
+        height: 0;
+        padding-bottom: 100%; /* Makes it square */
+        overflow: hidden;
+    }
+    
+    .mobile-hero-img .hero-img img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
     }
     
     .desktop-hero-img { /* ADDED NEW RULE */
@@ -1155,11 +1169,13 @@
 }
         
         @media (max-width: 576px) {
-    .mobile-hero-img { /* CHANGED FROM .hero-img-wrapper */
-        margin: 20px auto;
-        width: 90%;
+    .mobile-hero-img {
+        max-width: 320px; /* Better for very small screens */
         padding: 4px;
-        border-radius: 16px;
+        border-radius: 14px;
+    }
+            .mobile-hero-img .hero-img {
+        padding-bottom: 100%; /* Maintain square aspect */
     }
             
             .hero-img {
