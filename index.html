@@ -994,36 +994,36 @@ footer {
   }
 }
 
-        @media screen and (min-width: 992px) {
-            /* Hero Section */
-            .hero-img-wrapper {
-                position: absolute;
-                right: 5%;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 42%;
-                margin: 0;
-                max-width: 520px;
-                order: initial ;
-            } 
-            .hero {
-                flex-direction: row ; 
-                align-items: center;
-            }
+       @media screen and (min-width: 992px) {
+    /* Hero Section */
+    .desktop-hero-img { 
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42%;
+        margin: 0;
+        max-width: 520px;
+    } 
     
-         .hero-content {
-          order: initial ; 
+    .hero {
+        flex-direction: row; 
+        align-items: center;
+    }
+
+    .hero-content {
+        order: initial;
         text-align: left;
-           }
-            
-            .hero-img {
-                padding-bottom: 0;
-                height: auto;
-            }
-            
-            .hero-img img {
-                position: static;
-            }
+    }
+    
+    .desktop-hero-img .hero-img { /* ADDED NEW SELECTOR */
+        padding-bottom: 0;
+        height: auto;
+    }
+    
+    .desktop-hero-img .hero-img img { /* ADDED NEW SELECTOR */
+        position: static;
+    }
             
             /* Projects Section */
             .projects-grid {
@@ -1031,16 +1031,16 @@ footer {
             }
         }
         
-        @media screen and (min-width: 1200px) {
-            .hero-img-wrapper {
-                right: 8%;
-                width: 40%;
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
+  @media screen and (min-width: 1200px) {
+    .desktop-hero-img { /* CHANGED FROM .hero-img-wrapper */
+        right: 8%;
+        width: 40%;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
         
         /* Mobile optimization */
       @media (max-width: 991px) {
@@ -1073,7 +1073,7 @@ footer {
     }
     
     /* Hero section modifications */
-    .hero {
+  .hero {
         flex-direction: column;
         justify-content: center;
         text-align: center;
@@ -1090,7 +1090,7 @@ footer {
         order: 1;
     }
     
-    .hero-img-wrapper {
+    .mobile-hero-img { /* CHANGED FROM .hero-img-wrapper */
         order: 2;
         position: static;
         transform: none;
@@ -1101,6 +1101,11 @@ footer {
         border-radius: 20px;
         background: linear-gradient(135deg, #2563eb, #0d9488);
         box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+        display: block; /* ADDED */
+    }
+    
+    .desktop-hero-img { /* ADDED NEW RULE */
+        display: none;
     }
     
     .hero-content p {
@@ -1135,12 +1140,12 @@ footer {
 }
         
         @media (max-width: 576px) {
-            .hero-img-wrapper {
-                margin: 20px auto;
-                width: 90%;
-                padding: 4px;
-                border-radius: 16px;
-            }
+    .mobile-hero-img { /* CHANGED FROM .hero-img-wrapper */
+        margin: 20px auto;
+        width: 90%;
+        padding: 4px;
+        border-radius: 16px;
+    }
             
             .hero-img {
                 border-radius: 10px;
@@ -1163,6 +1168,19 @@ footer {
                 font-size: 0.85rem;
             }
         }
+        .mobile-hero-img {
+    display: none; /* Hidden by default, shown only in mobile */
+}
+
+@media (min-width: 992px) {
+    .desktop-hero-img {
+        display: block; /* Show on desktop */
+    }
+    
+    .mobile-hero-img {
+        display: none; /* Ensure hidden on desktop */
+    }
+}
     </style>
 </head>
 <body>
@@ -1204,11 +1222,18 @@ footer {
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-heading-group">
-                <h1>Hello, I'm <span class="name">Shoyeb Ahmed Fahim</span></h1>
-                <p class="subtitle">Engineer | Innovator | Embedded Systems & VLSI Enthusiast
-                    </p>
+                    <div class="hero-heading-group">
+                        <h1>Hello, I'm <span class="name">Shoyeb Ahmed Fahim</span></h1>
+                        <p class="subtitle">Engineer | Innovator | Embedded Systems & VLSI Enthusiast
+                        </p>
                     </div>
+               
+    <!-- Mobile Hero Image (visible only on mobile) -->
+                <div class="hero-img-wrapper mobile-hero-img">
+                    <div class="hero-img">
+                        <img src="images/Profile.jpg" alt="Shoyeb Ahmed Fahim">    
+                    </div>
+                </div>
                 <p>
                     I build smarter hardware systems—from fire-fighting robots to custom silicon layouts. With a background in embedded design, power electronics, and semiconductors, I’m always exploring what’s next in intelligent hardware. My goal? To bring embedded systems and real-world AI together—shaping tech that’s faster, smarter, and truly efficient.
                 </p>
@@ -1223,8 +1248,8 @@ footer {
             </div>
         </div>
         
-                    <!-- Hero Image with Gradient Border -->
-        <div class="hero-img-wrapper">
+                  <!-- Desktop Hero Image (visible only on desktop) -->
+        <div class="hero-img-wrapper desktop-hero-img">
             <div class="hero-img">
             <img src="images/Profile.jpg" alt="Shoyeb Ahmed Fahim">    
         </div>
