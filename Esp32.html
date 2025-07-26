@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High Voltage Direct Current (HVDC) Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #a8dadc;
+      --dark: #1d3557;
+      --light: #f1faee;
+      --accent: #f4a261;
+      --header-bg: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      color: #333;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+    }
+
+    /* Header styles */
+    header {
+      background: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzFlMzQ1NyIgZmlsbC1vcGFjaXR5PSIwLjEiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjNDU3YjlkIiBmaWxsLW9wYWNpdHk9IjAuMiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* Container styles */
+    .container {
+      max-width: 1200px;
+      margin: -50px auto 50px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h2 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    .intro p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(230, 57, 70, 0.1) 0%, rgba(168, 218, 220, 0.1) 100%);
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      margin: 25px 0;
+    }
+
+    /* Features section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .feature-card {
+      background: rgba(168, 218, 220, 0.15);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(168, 218, 220, 0.3);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      background: rgba(168, 218, 220, 0.25);
+      box-shadow: 0 8px 20px rgba(168, 218, 220, 0.2);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+
+    .feature-card h3 {
+      color: var(--dark);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    /* Equipment styles */
+    .equipment-section {
+      margin-top: 40px;
+    }
+
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .equipment-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .equipment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .equipment-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    /* Gallery styles */
+    .gallery-section {
+      margin-top: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      background: #f8fafc;
+      padding: 10px;
+    }
+
+    .gallery-caption {
+      padding: 15px;
+      text-align: center;
+      font-weight: 500;
+      color: var(--dark);
+      background: var(--light);
+    }
+
+    /* Video player styles */
+    .video-container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .video-container video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Button styles */
+    .btn-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .btn:hover {
+      background: #c1121f;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    #modal-caption {
+      margin: 15px auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .card {
+        padding: 30px 20px;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header {
+        padding: 100px 20px 60px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .modal-content {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>High Voltage Direct Current (HVDC)</h1>
+    <p class="subtitle">Efficient power transmission over long distances</p>
+  </header>
+  
+  <div class="container">
+    <div class="card intro">
+      <h2><i class="fas fa-bolt"></i> Project Overview</h2>
+      
+      <p>
+        High Voltage Direct Current (HVDC) technology enables efficient transmission of large amounts of electricity over long distances with lower losses compared to traditional AC systems. This project demonstrates the implementation and testing of an HVDC system prototype.
+      </p>
+      
+      <div class="highlight">
+        <p>
+         Our tests confirmed that the HVDC boost converter efficiently steps up low DC voltage to high levels with reliable and stable performance. The circuit maintained consistent output under varying load conditions, proving its suitability for small-scale high-voltage applications.</p>
+      </div>
+      
+      <h3>Key Advantages</h3>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-charging-station"></i>
+          </div>
+          <h3>Cost-Effective Solution</h3>
+          <p>Low-cost components and easy to build</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Compact and Lightweight</h3>
+          <p>Compact compared to transformer-based circuits</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-compress-arrows-alt"></i>
+          </div>
+          <h3>Scalable Output Voltage</h3>
+          <p>Adjustable output via resistor tuning</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-wind"></i>
+          </div>
+          <h3>Good Efficiency at Moderate Loads</h3>
+          <p>Efficient at moderate power levels</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card equipment-section">
+      <h2><i class="fas fa-tools"></i> Equipment Used</h2>
+      
+      <div class="equipment-grid">
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3>IC- MC34063</h3>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>Diode - 1N4004 & 1N4007</h3>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+           <h3>Transisotr - BC557 & MJE13005</h3>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-fan"></i>
+          </div>
+          <h3>Power Supply</h3>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-battery-full"></i>
+          </div>
+          <h3>Capacitor - 4700U, 33U</h3>
+        </div>
+        
+        <div class="equipment-card">
+          <div class="equipment-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Resistors, Inductor, Capacitor, Potentiometer.</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card gallery-section">
+      <h2><i class="fas fa-images"></i> Implementation Gallery</h2>
+      
+      <h3><i class="fas fa-project-diagram"></i> Block Diagram</h3>
+      <div class="gallery">
+        <div class="gallery-item" onclick="openModal('images/HVDC/Circuit.jpg', 'HVDC System Block Diagram')">
+          <img src="images/HVDC/Circuit.jpg" alt="Block Diagram">
+          <div class="gallery-caption">HVDC System Block Diagram</div>
+        </div>
+      </div>
+      
+      <h3><i class="fas fa-drafting-compass"></i> Circuit Design</h3>
+      <div class="gallery">
+        <div class="gallery-item" onclick="openModal('images/HVDC/Proteus.jpg', 'Proteus Circuit Design')">
+          <img src="images/HVDC/Proteus.jpg" alt="Circuit Diagram">
+          <div class="gallery-caption">Proteus Circuit Design</div>
+        </div>
+      </div>
+      
+      <h3><i class="fas fa-bread-slice"></i> Breadboard Implementation</h3>
+      <div class="gallery">
+        <div class="gallery-item" onclick="openModal('images/HVDC/Ckt.jpg', 'Circuit on Breadboard')">
+          <img src="images/HVDC/Ckt.jpg" alt="Ckt in Breadboard">
+          <div class="gallery-caption">Circuit on Breadboard</div>
+        </div>
+      </div>
+      
+      <h3><i class="fas fa-tachometer-alt"></i> I/O Measurements</h3>
+      <div class="gallery">
+        <div class="gallery-item" onclick="openModal('images/HVDC/input check.jpg', 'Input Voltage Measurement')">
+          <img src="images/HVDC/input check.jpg" alt="Input check">
+          <div class="gallery-caption">Input Voltage Measurement</div>
+        </div>
+        <div class="gallery-item" onclick="openModal('images/HVDC/output check.jpg', 'Output Voltage Measurement')">
+          <img src="images/HVDC/output check.jpg" alt="Output check">
+          <div class="gallery-caption">Output Voltage Measurement</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="video-container">
+      <h2><i class="fas fa-video"></i> Video Demonstration</h2>
+      <video controls>
+        <source src="images/HVDC/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="gallery-caption">HVDC System I/O Rating Demonstration</div>
+    </div>
+    
+    <div class="card">
+      <h2><i class="fas fa-star"></i> Key Features</h2>
+      
+      <div class="features-grid" style="margin-top: 30px;">
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-satellite-dish"></i>
+          </div>
+          <h3>Integrated PWM Control</h3>
+          <p>Uses MC34063 IC for PWM control</p>
+        </div>
+        
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-battery-quarter"></i>
+          </div>
+          <h3>Efficient Switching with External Transistor</h3>
+          <p>MJE13005 transistor handles high voltage switching</p>
+        </div>
+        
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Energy Storage Inductor and Filtering Capacitors</h3>
+          <p>Inductor-capacitor filter smooths output voltage</p>
+        </div>
+        
+        <div class="feature-card" style="background: rgba(244, 162, 97, 0.15);">
+          <div class="feature-icon" style="background: var(--accent);">
+            <i class="fas fa-compress-arrows-alt"></i>
+          </div>
+          <h3>Output Voltage Feedback Network</h3>
+          <p>Voltage feedback ensures output regulation</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="btn-container">
+      <a href="index.html" class="btn">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+      </a>
+    </div>
+  </div>
+  
+  <!-- Modal Structure -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="modal-caption"></div>
+  </div>
+  
+  <script>
+    // Get the modal
+    const modal = document.getElementById("imageModal");
+    
+    // Function to open modal
+    function openModal(src, caption) {
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("modal-caption");
+      
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = caption;
+    }
+    
+    // Function to close modal
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    // Close modal when clicking outside of image
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+    
+    // Simple animation for cards when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card, .feature-card, .equipment-card, .gallery-item');
+      
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      
+      setTimeout(() => {
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 150 * index);
+        });
+      }, 300);
+    });
+  </script>
+</body>
+</html>
