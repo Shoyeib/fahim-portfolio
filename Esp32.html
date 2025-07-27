@@ -372,49 +372,64 @@
       
       <p>
     This project features a custom ESP32-WROOM-based development board designed for flexibility, compactness, and practical application in real-world IoT and automation systems. With a rich set of interfaces—including I2C, UART, GPIOs, and relay control—the board supports rapid prototyping and reliable deployment for sensor-based systems, wireless control, and low-power embedded applications. Its modular structure and onboard power management make it suitable for both standalone and battery-powered solutions.</p>
-      <div class="highlight">
-        <p>
- <li>✅ <strong>ESP32-WROOM Module:</strong> Dual-core MCU with Wi-Fi + Bluetooth for powerful wireless connectivity</li>
-  <li>🔌 <strong>USB-C Power & Programming:</strong> Modern interface with integrated charging and serial communication</li>
-  <li>🔋 <strong>Battery Support:</strong> Onboard TP4056 charger and FP6291 boost converter for portable applications</li>
-  <li>📟 <strong>Sensor & Display Ready:</strong> I2C Qwiic connector and OLED compatibility for real-time data interaction</li>
-  <li>⚙️ <strong>Relay Control:</strong> Solid-state relay support for automation and switching tasks</li>
-  <li>💡 <strong>LED Driver:</strong> ULN2003A-based driver for high-current LED or peripheral control</li>
-  <li>🧩 <strong>Modular Design:</strong> Breakout headers, user I/O, and mounting options for easy integration</li>
-        </p>
-      <h3>Key Advantages</h3>
+    <div class="highlight">
+  <ul>
+    <li><strong>✅ ESP32-WROOM Module:</strong> Dual-core MCU with Wi-Fi + Bluetooth for powerful wireless connectivity</li>
+    <li><strong>🔌 USB Type-C Interface:</strong> For both power input and serial communication</li>
+    <li><strong>💻 CH340C USB-UART Converter:</strong> Allows easy programming and serial debugging</li>
+    <li><strong>🔋 Battery Charging:</strong> TP4056 IC for Li-ion battery charging with protection</li>
+    <li><strong>⚡ Boost Converter:</strong> FP6291 boosts 3.3V from battery to 5V output</li>
+    <li><strong>🔧 Voltage Regulation:</strong> AMS1117-3.3 LDO ensures stable 3.3V supply for the ESP32</li>
+    <li><strong>📟 I2C Connector:</strong> Qwiic-style 4-pin header for sensor and display interfacing (SDA, SCL, 3.3V, GND)</li>
+    <li><strong>⚙️ Relay Driver:</strong> ASSR-1218 solid-state relay for safe signal switching</li>
+    <li><strong>💡 LED Driver:</strong> ULN2003A Darlington array for controlling LEDs or other high-current loads</li>
+    <li><strong>🔘 User Button:</strong> Tactile switch connected to a GPIO for user input</li>
+    <li><strong>🖥 OLED Display Support:</strong> Designed to connect an I2C OLED for real-time data display</li>
+    <li><strong>🧩 Breakout Headers:</strong> Easy access to GPIOs, power, and I2C lines for prototyping</li>
+    <li><strong>📌 Mounting Points:</strong> PCB layout includes mounting holes for secure integration into enclosures</li>
+  </ul>
+</div>
+      <h3>Probable Applications</h3>
       
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-charging-station"></i>
           </div>
-          <h3>Cost-Effective Solution</h3>
-          <p>Low-cost components and easy to build</p>
+          <h3>IoT Systems</h3>
+          <p>Sensor-based automation, wireless data acquisition, cloud-connected nodes</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-exchange-alt"></i>
           </div>
-          <h3>Compact and Lightweight</h3>
-          <p>Compact compared to transformer-based circuits</p>
+          <h3>Smart Home Projects</h3>
+          <p>Relay control for lighting, fans, door locks, etc</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-compress-arrows-alt"></i>
           </div>
-          <h3>Scalable Output Voltage</h3>
-          <p>Adjustable output via resistor tuning</p>
+          <h3>Industrial Monitoring</h3>
+          <p>RS485-ready structure (if included) enables robust communication in noisy environments</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-wind"></i>
           </div>
-          <h3>Good Efficiency at Moderate Loads</h3>
-          <p>Efficient at moderate power levels</p>
+          <h3>Portable Devices</h3>
+          <p>Battery-compatible design ideal for wearables, handheld tools, or monitoring units</p>
+      </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-wind"></i>
+          </div>
+          <h3>Educational Use</h3>
+          <p>Battery-compatible design ideal for wearables, handheld tools, or monitoring units</p>
         </div>
       </div>
     </div>
