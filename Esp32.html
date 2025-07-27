@@ -373,21 +373,21 @@
       <p>
     This project features a custom ESP32-WROOM-based development board designed for flexibility, compactness, and practical application in real-world IoT and automation systems. With a rich set of interfaces—including I2C, UART, GPIOs, and relay control—the board supports rapid prototyping and reliable deployment for sensor-based systems, wireless control, and low-power embedded applications. Its modular structure and onboard power management make it suitable for both standalone and battery-powered solutions.</p>
     <div class="highlight">
-  <ul>
-    <li><strong>✅ ESP32-WROOM Module:</strong> Dual-core MCU with Wi-Fi + Bluetooth for powerful wireless connectivity</li>
-    <li><strong>🔌 USB Type-C Interface:</strong> For both power input and serial communication</li>
-    <li><strong>💻 CH340C USB-UART Converter:</strong> Allows easy programming and serial debugging</li>
-    <li><strong>🔋 Battery Charging:</strong> TP4056 IC for Li-ion battery charging with protection</li>
-    <li><strong>⚡ Boost Converter:</strong> FP6291 boosts 3.3V from battery to 5V output</li>
-    <li><strong>🔧 Voltage Regulation:</strong> AMS1117-3.3 LDO ensures stable 3.3V supply for the ESP32</li>
-    <li><strong>📟 I2C Connector:</strong> Qwiic-style 4-pin header for sensor and display interfacing (SDA, SCL, 3.3V, GND)</li>
-    <li><strong>⚙️ Relay Driver:</strong> ASSR-1218 solid-state relay for safe signal switching</li>
-    <li><strong>💡 LED Driver:</strong> ULN2003A Darlington array for controlling LEDs or other high-current loads</li>
-    <li><strong>🔘 User Button:</strong> Tactile switch connected to a GPIO for user input</li>
-    <li><strong>🖥 OLED Display Support:</strong> Designed to connect an I2C OLED for real-time data display</li>
-    <li><strong>🧩 Breakout Headers:</strong> Easy access to GPIOs, power, and I2C lines for prototyping</li>
-    <li><strong>📌 Mounting Points:</strong> PCB layout includes mounting holes for secure integration into enclosures</li>
-  </ul>
+  
+    <strong>✅ ESP32-WROOM Module:</strong> Dual-core MCU with Wi-Fi + Bluetooth for powerful wireless connectivity<br>
+    <strong>🔌 USB Type-C Interface:</strong> For both power input and serial communication<br>
+    <strong>💻 CH340C USB-UART Converter:</strong> Allows easy programming and serial debugging<br>
+    <strong>🔋 Battery Charging:</strong> TP4056 IC for Li-ion battery charging with protection<br>
+    <strong>⚡ Boost Converter:</strong> FP6291 boosts 3.3V from battery to 5V output<br>
+    <strong>🔧 Voltage Regulation:</strong> AMS1117-3.3 LDO ensures stable 3.3V supply for the ESP32<br>
+    <strong>📟 I2C Connector:</strong> Qwiic-style 4-pin header for sensor and display interfacing (SDA, SCL, 3.3V, GND)<br>
+    <strong>⚙️ Relay Driver:</strong> ASSR-1218 solid-state relay for safe signal switching<br>
+    <strong>💡 LED Driver:</strong> ULN2003A Darlington array for controlling LEDs or other high-current loads<br>
+    <strong>🔘 User Button:</strong> Tactile switch connected to a GPIO for user input<br>
+    <strong>🖥 OLED Display Support:</strong> Designed to connect an I2C OLED for real-time data display<br>
+    <strong>🧩 Breakout Headers:</strong> Easy access to GPIOs, power, and I2C lines for prototyping<br>
+    <strong>📌 Mounting Points:</strong> PCB layout includes mounting holes for secure integration into enclosures<br>
+  
 </div>
       <h3>Probable Applications</h3>
       
@@ -396,41 +396,50 @@
           <div class="feature-icon">
             <i class="fas fa-charging-station"></i>
           </div>
-          <h3>IoT Systems</h3>
-          <p>Sensor-based automation, wireless data acquisition, cloud-connected nodes</p>
+          <h3>IoT Gateways</h3>
+          <p>Use Wi-Fi/Bluetooth from ESP32-WROOM and CP2104 USB-UART for seamless wireless-to-USB communication in smart homes or edge devices</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-exchange-alt"></i>
           </div>
-          <h3>Smart Home Projects</h3>
-          <p>Relay control for lighting, fans, door locks, etc</p>
+          <h3>Smart Lighting or Actuator Control</h3>
+          <p>ULN2003A LED driver supports control of high-current outputs such as LEDs, buzzers, or solenoids</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-compress-arrows-alt"></i>
           </div>
-          <h3>Industrial Monitoring</h3>
-          <p>RS485-ready structure (if included) enables robust communication in noisy environments</p>
+          <h3>Environmental Monitoring</h3>
+          <p>Integrated SI7021 sensor allows accurate temperature and humidity measurement for weather stations or smart agriculture</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-wind"></i>
           </div>
-          <h3>Portable Devices</h3>
-          <p>Battery-compatible design ideal for wearables, handheld tools, or monitoring units</p>
+          <h3>USB-Based Communication</h3>
+          <p>CP2104 chip offers reliable USB-to-serial bridging for PC communication, debugging, and firmware updates</p>
       </div>
 
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-wind"></i>
           </div>
-          <h3>Educational Use</h3>
-          <p>Battery-compatible design ideal for wearables, handheld tools, or monitoring units</p>
+          <h3>Embedded System Prototyping</h3>
+          <p>With its modular components and protection, this board is ideal for rapid prototyping in both lab and field environments</p>
         </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-wind"></i>
+          </div>
+          <h3> Portable Electronics</h3>
+          <p>TLV1117LV LDO and USC 2.0 connector enable stable low-voltage operation and compact power delivery for mobile/embedded devices</p>
+        </div>
+        
       </div>
     </div>
     
